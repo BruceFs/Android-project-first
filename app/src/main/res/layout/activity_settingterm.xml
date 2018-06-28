@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.xty.helloagain.MyActivity.SettingTerm"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/bg">
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="100">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="30"
+            android:textSize="@dimen/text"
+            android:text="@string/numberOfWeeks" />
+        <com.example.xty.helloagain.MyView.ClearEditText
+            android:id="@+id/numberOfWeeks"
+
+            android:hint="请输入本学期周数"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:selectAllOnFocus="true"
+            android:inputType="number"
+            android:drawableRight="@drawable/delete_selector"
+            android:textColorHighlight="#C0C0C0"
+            android:completionThreshold="1"
+            android:layout_weight="30"
+            android:popupTheme="@style/Base.TextAppearance.AppCompat.Widget.PopupMenu.Header"/>
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/saveNumberOfWeeks"
+        android:text="@string/saveNumberOfWeeks"
+        android:layout_width="250dp"
+        android:textSize="16sp"
+        android:textColor="#2a5caa"
+        android:background="@drawable/button"
+        android:layout_height="wrap_content"
+        />
+    <Button
+        android:id="@+id/setTermArrangement"
+        android:text="@string/setTermArrangement"
+        android:layout_width="250dp"
+        android:textSize="16sp"
+        android:textColor="#2a5caa"
+        android:background="@drawable/button"
+        android:layout_height="wrap_content"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text"
+        android:text="@string/setFestivals" />
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="100">
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/festivalWeekNo"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:entries="@array/weekNumber"
+            android:layout_weight="50"></android.support.v7.widget.AppCompatSpinner>
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/festvalWeekday"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:entries="@array/weekdays"
+            android:layout_weight="50"></android.support.v7.widget.AppCompatSpinner>
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/saveFestivals"
+        android:text="@string/saveFestivals"
+        android:layout_width="250dp"
+        android:textSize="16sp"
+        android:textColor="#2a5caa"
+        android:background="@drawable/button"
+        android:layout_height="wrap_content"
+        />
+
+
+</LinearLayout>
