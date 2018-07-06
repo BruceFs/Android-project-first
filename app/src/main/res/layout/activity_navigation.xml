@@ -22,15 +22,15 @@
         android:background="@drawable/button"
         android:layout_height="wrap_content"
         />
+
     <Button
         android:id="@+id/queryClass"
-        android:text="@string/queryClass"
         android:layout_width="250dp"
-        android:textSize="16sp"
-        android:textColor="#2a5caa"
-        android:background="@drawable/button"
         android:layout_height="wrap_content"
-        />
+        android:background="@drawable/button"
+        android:text="@string/queryClass"
+        android:textColor="#2a5caa"
+        android:textSize="16sp" />
     <Button
     android:id="@+id/settingTerm"
     android:text="@string/settingTerm"

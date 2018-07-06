@@ -35,7 +35,7 @@ public class Navigation extends Activity{
 
     @OnClick(R.id.queryClass)
     public void onClickQuery(View view) {
-        Intent intent = new Intent(Navigation.this, ClassInfoActivity.class);
+        Intent intent = new Intent(Navigation.this, QueryActivity.class);
      /*   Intent intent = new Intent(Navigation.this, ClassArrangementInfoActivity.class);*/
         startActivity(intent);
        /* Toast.makeText(mContext, "转到查询界面", Toast.LENGTH_SHORT).show();*/

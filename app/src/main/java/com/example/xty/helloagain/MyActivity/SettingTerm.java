@@ -13,6 +13,8 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 
+import com.example.xty.helloagain.MyDataBase.ClassroomInfo;
+import com.example.xty.helloagain.MyDataBase.ClassroomInfoDao;
 import com.example.xty.helloagain.MyDataBase.CourseInfo;
 import com.example.xty.helloagain.MyDataBase.CourseInfoDao;
 import com.example.xty.helloagain.MyDataBase.FridayTable;
@@ -80,7 +82,13 @@ public class SettingTerm extends Activity{
     FridayTableDao mFridayTableDao;
     SaturdayTableDao mSaturdayTableDao;
     SundayTableDao mSundayTableDao;
+    MondayTable nMondayTable;
+    TuesdayTable nTuesdayTable;
+
+
+
     CourseInfoDao mCourseInfoDao;
+    ClassroomInfoDao mClassroomInfoDao;
     Holidays nHolidays;
     Settings newSettings;
     List<Settings> settings;
@@ -99,6 +107,9 @@ public class SettingTerm extends Activity{
         mSaturdayTableDao=MyApplication.getInstances().getDaoSession().getSaturdayTableDao();
         mSundayTableDao=MyApplication.getInstances().getDaoSession().getSundayTableDao();
         mCourseInfoDao=MyApplication.getInstances().getDaoSession().getCourseInfoDao();
+        mClassroomInfoDao=MyApplication.getInstances().getDaoSession().getClassroomInfoDao();
+
+
 
     }
 
@@ -110,7 +121,32 @@ public class SettingTerm extends Activity{
         newSettings=new Settings(null,weeknumbers.toString());
         mSettingDao.deleteAll();
         mSettingDao.insert(newSettings);
-        settings=mSettingDao.loadAll();
+        mMondayTableDao.deleteAll();
+        for (int i=1;i<=Integer.parseInt(weeknumbers);i++){
+            nMondayTable=new MondayTable(null,i,"","","","","","","","","","","","");
+            mMondayTableDao.insert(nMondayTable);
+        }
+
+
+
+    /*    List<Settings> settingList;
+        settingList=mSettingDao.queryBuilder().
+                where(SettingsDao.Properties.WeekNumber.eq("3")).build().list();
+        String id=settingList.get(0).getId().toString();*/
+
+      /*  settings=mSettingDao.loadAll();
+        for(int i=0;i< settings.size();i++)
+        {
+            if(settings.get(i).getWeekNumber()=="3")
+            {
+                String id= settings.get(i).getId().toString();
+                mSettingDao.deleteByKey(Long.parseLong(id));
+
+            }
+        }
+        */
+
+
         Toast.makeText(mContext, settings.get(0).getWeekNumber(), Toast.LENGTH_SHORT).show();
     }
 

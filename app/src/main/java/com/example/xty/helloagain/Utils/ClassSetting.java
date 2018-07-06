@@ -48,6 +48,8 @@ public class ClassSetting {
     private List<SaturdayTable> saturdayList;
     private List<SundayTable> sundayList;
 
+    private MondayTable mondaysituation;
+
 
     private void InitDB_Operation(){
         myCurriculumTableDao=MyApplication.getInstances().getDaoSession().getMyCurriculumTableDao();
@@ -72,6 +74,14 @@ public class ClassSetting {
     public void deletePlanByClassNumber(String classNumber){
 
     }
+    public void insertClassArrangement(String weekNumber, String weekDay, String classroom, String classNumber,String courseNumber) {
+        switch (weekDay){
+            case "Monday":
+                //按照周数和classNumber取出数据，结尾增加classroom_courseNumber*,修改数据库
+                break;
+        }
+
+    }
     public void findPlan(String studentNumber, String weekday, int startWeek, int endWeek,int startClass,int endClass){
         InitDB_Operation();
         List<String> ClassSituation=new ArrayList<>();
@@ -81,8 +91,10 @@ public class ClassSetting {
                     //循环取上课周的所有课程
 
                     //循环取所有行，再取列，然后存在Dic里，剩余的部分即可用的
-                    mondayList=mMondayTableDao.queryBuilder()
-                            .where(MondayTableDao.Properties.WeekNumber.eq(String.valueOf(i))).build().list();
+                    mondaysituation=mMondayTableDao.queryBuilder().where(MondayTableDao.Properties.WeekNumber.eq(String.valueOf(i)));
+                    mondaysituation.
+                    mondayList=mMondayTableDao.queryBuilder().
+                            where(MondayTableDao.Properties.WeekNumber.eq(String.valueOf(i))).build().list();//取出第i周周一1-12节机房占用情况
                    for(int j=0;j<mondayList.size();j++){
                        for(int k=startClass;k<=endClass;k++){
                            switch (String.valueOf(k)){

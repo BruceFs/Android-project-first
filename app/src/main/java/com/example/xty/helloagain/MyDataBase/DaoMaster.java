@@ -22,32 +22,34 @@ public class DaoMaster extends AbstractDaoMaster {
 
     /** Creates underlying database table using DAOs. */
     public static void createAllTables(Database db, boolean ifNotExists) {
-        MyCurriculumTableDao.createTable(db, ifNotExists);
-        SettingsDao.createTable(db, ifNotExists);
+        CourseInfoDao.createTable(db, ifNotExists);
+        FridayTableDao.createTable(db, ifNotExists);
         HolidaysDao.createTable(db, ifNotExists);
         MondayTableDao.createTable(db, ifNotExists);
-        FridayTableDao.createTable(db, ifNotExists);
+        MyCurriculumTableDao.createTable(db, ifNotExists);
         SaturdayTableDao.createTable(db, ifNotExists);
+        SettingsDao.createTable(db, ifNotExists);
         SundayTableDao.createTable(db, ifNotExists);
         ThursdayTableDao.createTable(db, ifNotExists);
         TuesdayTableDao.createTable(db, ifNotExists);
         WednesdayTableDao.createTable(db, ifNotExists);
-        CourseInfoDao.createTable(db, ifNotExists);
+        ClassroomInfoDao.createTable(db, ifNotExists);
     }
 
     /** Drops underlying database table using DAOs. */
     public static void dropAllTables(Database db, boolean ifExists) {
-        MyCurriculumTableDao.dropTable(db, ifExists);
-        SettingsDao.dropTable(db, ifExists);
+        CourseInfoDao.dropTable(db, ifExists);
+        FridayTableDao.dropTable(db, ifExists);
         HolidaysDao.dropTable(db, ifExists);
         MondayTableDao.dropTable(db, ifExists);
-        FridayTableDao.dropTable(db, ifExists);
+        MyCurriculumTableDao.dropTable(db, ifExists);
         SaturdayTableDao.dropTable(db, ifExists);
+        SettingsDao.dropTable(db, ifExists);
         SundayTableDao.dropTable(db, ifExists);
         ThursdayTableDao.dropTable(db, ifExists);
         TuesdayTableDao.dropTable(db, ifExists);
         WednesdayTableDao.dropTable(db, ifExists);
-        CourseInfoDao.dropTable(db, ifExists);
+        ClassroomInfoDao.dropTable(db, ifExists);
     }
 
     /**
@@ -66,17 +68,18 @@ public class DaoMaster extends AbstractDaoMaster {
 
     public DaoMaster(Database db) {
         super(db, SCHEMA_VERSION);
-        registerDaoClass(MyCurriculumTableDao.class);
-        registerDaoClass(SettingsDao.class);
+        registerDaoClass(CourseInfoDao.class);
+        registerDaoClass(FridayTableDao.class);
         registerDaoClass(HolidaysDao.class);
         registerDaoClass(MondayTableDao.class);
-        registerDaoClass(FridayTableDao.class);
+        registerDaoClass(MyCurriculumTableDao.class);
         registerDaoClass(SaturdayTableDao.class);
+        registerDaoClass(SettingsDao.class);
         registerDaoClass(SundayTableDao.class);
         registerDaoClass(ThursdayTableDao.class);
         registerDaoClass(TuesdayTableDao.class);
         registerDaoClass(WednesdayTableDao.class);
-        registerDaoClass(CourseInfoDao.class);
+        registerDaoClass(ClassroomInfoDao.class);
     }
 
     public DaoSession newSession() {
